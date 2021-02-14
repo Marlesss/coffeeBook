@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>602</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,11 +18,20 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>0</y>
       <width>781</width>
-      <height>551</height>
+      <height>561</height>
      </rect>
     </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+    <attribute name="horizontalHeaderVisible">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -34,8 +43,20 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuadd">
+    <property name="title">
+     <string>База данных</string>
+    </property>
+    <addaction name="add_action"/>
+   </widget>
+   <addaction name="menuadd"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="add_action">
+   <property name="text">
+    <string>Добавить новую запись</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
