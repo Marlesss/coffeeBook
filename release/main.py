@@ -2,12 +2,15 @@ import sys
 import sqlite3
 from PyQt5 import uic, QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QTableWidgetItem
+from main_ui import Ui_MainWindow
+from addEditCoffeeForm import Ui_Form
 
 
-class AddEditCoffeeForm(QWidget):
+class AddEditCoffeeForm(QWidget, Ui_Form):
     def __init__(self, unit_id=None, unit_row=None, parent=None):
         super().__init__()
-        uic.loadUi("addEditCoffeeForm.ui", self)
+        self.setupUi(self)
+        # uic.loadUi("../UI/addEditCoffeeForm.ui", self)
         self.parent = parent
         self.unit_id = unit_id
         self.unit_row = unit_row
@@ -66,14 +69,14 @@ VALUES ({', '.join(data)})"""
         super().closeEvent(a0)
 
 
-class Main(QMainWindow):
+class Main(QMainWindow, Ui_MainWindow):
     def __init__(self):
-        self.con = sqlite3.connect("coffee.sqlite")
+        self.con = sqlite3.connect("../data/coffee.sqlite")
         self.child = None
         self.headers = None
         super().__init__()
-        # self.setupUi(self)
-        uic.loadUi("main.ui", self)
+        self.setupUi(self)
+        # uic.loadUi("../UI/main_ui.ui", self)
         self.initUI()
         self.init_data_base()
 
